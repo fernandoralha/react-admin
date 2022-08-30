@@ -1,19 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './app/App';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import GlobalStyles from './core/globalStyles';
-import './core/imports.css';
-import  'antd/dist/antd.css';
+import DefaultLayout from './app/layouts/Default';
+import Routes from './app/routes';
+import './index.less';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-    <GlobalStyles/>
-  </React.StrictMode>
+      <BrowserRouter>
+        <DefaultLayout>
+          <Routes />
+        </DefaultLayout>
+      </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
